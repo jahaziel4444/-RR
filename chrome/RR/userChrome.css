@@ -1,0 +1,155 @@
+/*
+ * #RR Browser — userChrome.css
+ * Clean, minimal, no-bloat UI
+ * Drop this in: profile/chrome/userChrome.css
+ * Enable toolkit.legacyUserProfileCustomizations.stylesheets = true
+ */
+
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+/* ===================================================
+   REMOVE BLOAT ELEMENTS
+   =================================================== */
+
+/* Remove Firefox View button */
+#firefox-view-button { display: none !important; }
+
+/* Remove Pocket button */
+#save-to-pocket-button { display: none !important; }
+
+/* Remove fxaccounts/sync button */
+#fxa-toolbar-menu-button { display: none !important; }
+
+/* Remove Shopping (review checker) */
+#shopping-sidebar-button { display: none !important; }
+
+/* Remove Profiler button if present */
+#profiler-button { display: none !important; }
+
+/* Remove All-Tabs button (optional, comment to keep) */
+/* #alltabs-button { display: none !important; } */
+
+/* Remove annoying unified extensions corner badge */
+#unified-extensions-button .toolbarbutton-badge-stack[hidden] { display: none !important; }
+
+/* ===================================================
+   #RR — TOOLBAR STYLE: DARK, CLEAN, PREMIUM
+   =================================================== */
+
+:root {
+  --rr-bg: #0a0a0a;
+  --rr-toolbar-bg: #111111;
+  --rr-accent: #c0c0c0;       /* Silver — matches logo */
+  --rr-accent-hot: #e8e8e8;
+  --rr-text: #f0f0f0;
+  --rr-border: #2a2a2a;
+  --rr-tab-active: #1a1a1a;
+  --rr-tab-hover: #1f1f1f;
+  --rr-radius: 8px;
+}
+
+/* Main window background */
+#main-window {
+  background: var(--rr-bg) !important;
+}
+
+/* Navigation bar */
+#nav-bar {
+  background: var(--rr-toolbar-bg) !important;
+  border-bottom: 1px solid var(--rr-border) !important;
+  padding: 3px 6px !important;
+}
+
+/* URL bar */
+#urlbar {
+  background: #1a1a1a !important;
+  border: 1px solid var(--rr-border) !important;
+  border-radius: var(--rr-radius) !important;
+  color: var(--rr-text) !important;
+  transition: border-color 0.15s ease !important;
+}
+
+#urlbar:focus-within {
+  border-color: var(--rr-accent) !important;
+  box-shadow: 0 0 0 1px var(--rr-accent) !important;
+}
+
+/* URL bar text */
+#urlbar-input {
+  color: var(--rr-text) !important;
+}
+
+/* Tabs bar */
+#TabsToolbar {
+  background: var(--rr-bg) !important;
+  border-bottom: 1px solid var(--rr-border) !important;
+}
+
+/* Individual tabs */
+.tab-background {
+  border-radius: var(--rr-radius) var(--rr-radius) 0 0 !important;
+}
+
+.tabbrowser-tab[selected] .tab-background {
+  background: var(--rr-tab-active) !important;
+  border: 1px solid var(--rr-border) !important;
+  border-bottom: none !important;
+}
+
+.tabbrowser-tab:not([selected]):hover .tab-background {
+  background: var(--rr-tab-hover) !important;
+}
+
+/* Tab text */
+.tab-text, .tab-label {
+  color: var(--rr-text) !important;
+  font-size: 12px !important;
+}
+
+/* Toolbar buttons */
+toolbarbutton {
+  color: var(--rr-accent) !important;
+  border-radius: 6px !important;
+  transition: background 0.1s ease !important;
+}
+
+toolbarbutton:hover {
+  background: #222222 !important;
+  color: var(--rr-accent-hot) !important;
+}
+
+/* Sidebar & panels */
+#sidebar-box {
+  background: var(--rr-bg) !important;
+  border-right: 1px solid var(--rr-border) !important;
+}
+
+/* ===================================================
+   COMPACT MODE ENHANCEMENT
+   =================================================== */
+:root[uidensity="compact"] #nav-bar { padding: 1px 4px !important; }
+:root[uidensity="compact"] #urlbar { min-height: 28px !important; }
+
+/* ===================================================
+   REMOVE TITLE BAR SPACE (more content real estate)
+   =================================================== */
+#titlebar { height: 0 !important; }
+
+/* ===================================================
+   CLEAN CONTEXT MENUS
+   =================================================== */
+menupopup {
+  background: #181818 !important;
+  border: 1px solid var(--rr-border) !important;
+  border-radius: 8px !important;
+  padding: 4px !important;
+}
+
+menuitem {
+  border-radius: 4px !important;
+  color: var(--rr-text) !important;
+}
+
+menuitem:hover {
+  background: #2a2a2a !important;
+}

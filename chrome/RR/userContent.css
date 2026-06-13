@@ -1,0 +1,32 @@
+/*
+ * #RR Browser — userContent.css
+ * Custom internal pages styling
+ */
+
+@namespace url("http://www.w3.org/1999/xhtml");
+
+/* ===================================================
+   about:blank — Clean dark new tab
+   =================================================== */
+@-moz-document url("about:blank") {
+  html, body {
+    background: #0a0a0a !important;
+    color: #f0f0f0 !important;
+  }
+}
+
+/* ===================================================
+   about:newtab — If user keeps newtab
+   =================================================== */
+@-moz-document url("about:newtab"), url("about:home") {
+  body {
+    background: #0a0a0a !important;
+  }
+}
+
+/* ===================================================
+   DuckDuckGo — Matches RR dark theme
+   =================================================== */
+@-moz-document domain("duckduckgo.com") {
+  /* Let DDG use its own dark mode via their settings */
+}
